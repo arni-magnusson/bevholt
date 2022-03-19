@@ -1,0 +1,12 @@
+Package: bevholt
+Version: 1.0.0
+Date: 2022-03-20
+Title: Beverton-Holt Recruitment Model
+Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com"))
+LazyData: yes
+Description: Beverton-Holt recruitment model implemented in Template Model
+  Builder.
+License: GPL-3
+Encoding: UTF-8
+RoxygenNote: 7.1.2
+Roxygen: list(old_usage=TRUE)

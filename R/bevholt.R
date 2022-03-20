@@ -11,6 +11,8 @@
 #' @examples
 #' bevholt()
 #'
+#' @useDynLib bevholt
+#'
 #' @export
 
 bevholt <- function(S, R, par=list(logRmax=0, logS50=0, logSigma=0))

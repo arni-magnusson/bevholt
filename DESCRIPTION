@@ -3,6 +3,7 @@ Version: 1.0.0
 Date: 2022-03-20
 Title: Beverton-Holt Recruitment Model
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com"))
+LinkingTo: TMB, RcppEigen
 LazyData: yes
 Description: Beverton-Holt recruitment model implemented in Template Model
   Builder.

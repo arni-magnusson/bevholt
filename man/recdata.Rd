@@ -5,10 +5,11 @@
 \alias{recdata}
 \title{Recruitment Data}
 \format{
-Data frame containing two columns:
-\tabular{ll}{
-  \code{S} \tab spawning biomass\cr
-  \code{R} \tab recruitment
+Data frame containing three columns:
+\describe{
+\item{\code{Year}}{year.}
+\item{\code{S}}{spawning biomass.}
+\item{\code{R}}{recruitment.}
 }
 }
 \usage{

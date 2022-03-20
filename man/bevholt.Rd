@@ -2,16 +2,18 @@
 % Please edit documentation in R/bevholt.R
 \name{bevholt}
 \alias{bevholt}
-\title{Beverton-Holt}
+\title{Beverton-Holt Model}
 \usage{
-bevholt(S, R, par = list(logRmax = 0, logS50 = 0, logSigma = 0))
+bevholt(data, parameters = list(logRmax = 0, logS50 = 0, logSigma = 0),
+  quiet = TRUE)
 }
 \arguments{
-\item{S}{spawning biomass.}
+\item{data}{data frame containing \code{S} and \code{R}, spawning biomass and
+recruitment.}
 
-\item{R}{recruitment.}
+\item{parameters}{vector of initial parameter values.}
 
-\item{par}{initial parameter values.}
+\item{quiet}{whether to suppress gradient messages.}
 }
 \value{
 Vector of estimated parameter values.
@@ -20,6 +22,6 @@ Vector of estimated parameter values.
 Fit a Beverton-Holt recruitment model.
 }
 \examples{
-bevholt()
+bevholt(recdata)
 
 }

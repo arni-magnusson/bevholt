@@ -6,17 +6,18 @@
 \title{Recruitment Data}
 \format{
 Data frame containing two columns:
-\describe{
-\item{\code{S}}{spawning biomass.}
-\item{\code{R}}{recruitment.}
+\tabular{ll}{
+  \code{S} \tab spawning biomass\cr
+  \code{R} \tab recruitment
 }
 }
 \usage{
 recdata
 }
 \description{
-Simulated stock-recruitment data.
+Simulated stock-recruitment dataset.
 }
 \examples{
 recdata
+bevholt(recdata)
 }

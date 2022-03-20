@@ -1,23 +1,28 @@
-#' Beverton-Holt
+#' Beverton-Holt Model
 #'
 #' Fit a Beverton-Holt recruitment model.
 #'
-#' @param S spawning biomass.
-#' @param R recruitment.
-#' @param par initial parameter values.
+#' @param data data frame containing \code{S} and \code{R}, spawning biomass and
+#'        recruitment.
+#' @param parameters vector of initial parameter values.
+#' @param quiet whether to suppress gradient messages.
 #'
 #' @return Vector of estimated parameter values.
 #'
 #' @examples
-#' bevholt()
+#' bevholt(recdata)
 #'
 #' @useDynLib bevholt
 #'
+#' @importFrom stats nlminb
+#' @importFrom TMB MakeADFun
+#'
 #' @export
 
-bevholt <- function(S, R, par=list(logRmax=0, logS50=0, logSigma=0))
+bevholt <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
+                    quiet=TRUE)
 {
-  model <- list(env=list(last.par.best=par))
-  best <- model$env$last.par.best
-  best
+  model <- MakeADFun(data, parameters, DLL="bevholt", silent=quiet)
+  fit <- nlminb(model$par, model$fn, model$gr)
+  fit$par
 }

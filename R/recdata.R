@@ -5,16 +5,16 @@
 #' @title Recruitment Data
 #'
 #' @description
-#' Simulated stock-recruitment dataset.
+#' Simulated stock-recruitment data.
 #'
 #' @usage
 #' recdata
 #'
 #' @format
 #' Data frame containing two columns:
-#' \tabular{ll}{
-#'   \code{S} \tab spawning biomass\cr
-#'   \code{R} \tab recruitment
+#' \describe{
+#' \item{\code{S}}{spawning biomass.}
+#' \item{\code{R}}{recruitment.}
 #' }
 #'
 #'

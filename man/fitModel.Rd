@@ -16,14 +16,16 @@ recruitment.}
 \item{quiet}{whether to suppress gradient messages.}
 }
 \value{
-List containing (TMB) \code{model} and (\code{nlminb}) \code{fit}.
+List containing (TMB) \code{model}, (nlminb) \code{fit}, and (SD)
+\code{report}.
 }
 \description{
 Fit a Beverton-Holt recruitment model.
 }
 \note{
 The formulation used is
-\eqn{R = R_\mathrm{max} \frac{S}{S+S_{50}}}{R = Rmax * S / (S + S50)}.
+\eqn{\hat{R} = R_\mathrm{max} \frac{S}{S+S_{50}}}
+{Rhat = Rmax * S / (S + S50)}.
 
 \eqn{R_\mathrm{max}}{Rmax} is maximum recruitment and \eqn{S_{50}}{S50} is
 the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
@@ -32,9 +34,7 @@ the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
 fm <- fitModel(recdata)
 fm$fit$par
 fm$fit$objective
-report <- sdreport(fm$model)
-report
-Rhat <- as.data.frame(summary(report)[rownames(summary(report))=="Rhat",])
-data.frame(data, Rhat=Rhat$Estimate)
+Rhat <- summary(fm$report)[rownames(summary(fm$report))=="Rhat",]
+data.frame(recdata, Rhat=Rhat[,"Estimate"])
 
 }

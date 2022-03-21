@@ -2,5 +2,6 @@
 
 export(fitModel)
 importFrom(TMB,MakeADFun)
+importFrom(TMB,sdreport)
 importFrom(stats,nlminb)
 useDynLib(bevholt)

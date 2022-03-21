@@ -2,7 +2,7 @@
 % Please edit documentation in R/fitModel.R
 \name{fitModel}
 \alias{fitModel}
-\title{Beverton-Holt Model}
+\title{Fit Model}
 \usage{
 fitModel(data, parameters = list(logRmax = 0, logS50 = 0, logSigma = 0),
   quiet = TRUE)
@@ -16,7 +16,7 @@ recruitment.}
 \item{quiet}{whether to suppress gradient messages.}
 }
 \value{
-Vector of estimated parameter values.
+List containing (TMB) \code{model} and (\code{nlminb}) \code{fit}.
 }
 \description{
 Fit a Beverton-Holt recruitment model.
@@ -29,6 +29,12 @@ The formulation used is
 the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
 }
 \examples{
-fitModel(recdata)
+fm <- fitModel(recdata)
+fm$fit$par
+fm$fit$objective
+report <- sdreport(fm$model)
+report
+Rhat <- as.data.frame(summary(report)[rownames(summary(report))=="Rhat",])
+data.frame(data, Rhat=Rhat$Estimate)
 
 }

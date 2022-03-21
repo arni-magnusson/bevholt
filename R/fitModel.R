@@ -1,4 +1,4 @@
-#' Beverton-Holt Model
+#' Fit Model
 #'
 #' Fit a Beverton-Holt recruitment model.
 #'
@@ -7,7 +7,7 @@
 #' @param parameters vector of initial parameter values.
 #' @param quiet whether to suppress gradient messages.
 #'
-#' @return Vector of estimated parameter values.
+#' @return List containing (TMB) \code{model} and (\code{nlminb}) \code{fit}.
 #'
 #' @note
 #' The formulation used is
@@ -17,7 +17,13 @@
 #' the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
 #'
 #' @examples
-#' fitModel(recdata)
+#' fm <- fitModel(recdata)
+#' fm$fit$par
+#' fm$fit$objective
+#' report <- sdreport(fm$model)
+#' report
+#' Rhat <- as.data.frame(summary(report)[rownames(summary(report))=="Rhat",])
+#' data.frame(data, Rhat=Rhat$Estimate)
 #'
 #' @useDynLib bevholt
 #'
@@ -31,5 +37,5 @@ fitModel <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
 {
   model <- MakeADFun(data, parameters, DLL="bevholt", silent=quiet)
   fit <- nlminb(model$par, model$fn, model$gr)
-  fit$par
+  list(model=model, fit=fit)
 }

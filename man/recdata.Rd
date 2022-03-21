@@ -16,9 +16,9 @@ Data frame containing three columns:
 recdata
 }
 \description{
-Simulated stock-recruitment dataset.
+Simulated stock-recruitment data.
 }
 \examples{
 recdata
-bevholt(recdata)
+fitModel(recdata)
 }

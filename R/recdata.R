@@ -5,7 +5,7 @@
 #' @title Recruitment Data
 #'
 #' @description
-#' Simulated stock-recruitment dataset.
+#' Simulated stock-recruitment data.
 #'
 #' @usage
 #' recdata
@@ -21,6 +21,6 @@
 #'
 #' @examples
 #' recdata
-#' bevholt(recdata)
+#' fitModel(recdata)
 
 NA

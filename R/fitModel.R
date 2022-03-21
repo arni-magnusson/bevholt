@@ -17,7 +17,7 @@
 #' the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
 #'
 #' @examples
-#' bevholt(recdata)
+#' fitModel(recdata)
 #'
 #' @useDynLib bevholt
 #'
@@ -26,8 +26,8 @@
 #'
 #' @export
 
-bevholt <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
-                    quiet=TRUE)
+fitModel <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
+                     quiet=TRUE)
 {
   model <- MakeADFun(data, parameters, DLL="bevholt", silent=quiet)
   fit <- nlminb(model$par, model$fn, model$gr)

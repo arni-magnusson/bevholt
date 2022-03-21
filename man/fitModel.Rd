@@ -23,9 +23,8 @@ List containing (TMB) \code{model}, (nlminb) \code{fit}, and (SD)
 Fit a Beverton-Holt recruitment model.
 }
 \note{
-The formulation used is
-\eqn{\hat{R} = R_\mathrm{max} \frac{S}{S+S_{50}}}
-{Rhat = Rmax * S / (S + S50)}.
+The formulation used is \eqn{\hat{R} =
+R_\mathrm{max} \frac{S}{S+S_{50}}}{Rhat = Rmax * S / (S + S50)}.
 
 \eqn{R_\mathrm{max}}{Rmax} is maximum recruitment and \eqn{S_{50}}{S50} is
 the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.

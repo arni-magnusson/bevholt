@@ -21,5 +21,5 @@ Simulated stock-recruitment data.
 \examples{
 recdata
 plot(recdata[-1])
-fitModel(recdata)
+fitBevHolt(recdata)
 }

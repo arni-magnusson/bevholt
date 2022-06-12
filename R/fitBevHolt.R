@@ -1,4 +1,4 @@
-#' Fit Model
+#' Fit Beverton-Holt
 #'
 #' Fit a Beverton-Holt recruitment model.
 #'
@@ -8,8 +8,8 @@
 #' @param quiet whether to suppress gradient messages.
 #'
 #' @return
-#' List containing (TMB) \code{model}, (nlminb) \code{fit}, and (SD)
-#' \code{report}.
+#' List containing \code{obj} (TMB model object), \code{opt} (nlminb fit), and
+#' \code{report} (sdreport object).
 #'
 #' @note
 #' The formulation used is \eqn{\hat{R} =
@@ -20,9 +20,9 @@
 #'
 #' @examples
 #' # Fit model
-#' fm <- fitModel(recdata)
-#' fm$fit$par
-#' fm$fit$objective
+#' fm <- fitBevHolt(recdata)
+#' fm$opt$par
+#' fm$opt$objective
 #'
 #' # Summary and confint
 #' results <- data.frame(recdata, Rhat=exp(fm$report$value))
@@ -44,11 +44,11 @@
 #'
 #' @export
 
-fitModel <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
+fitBevHolt <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
                      quiet=TRUE)
 {
-  model <- MakeADFun(data, parameters, DLL="bevholt", silent=quiet)
-  fit <- nlminb(model$par, model$fn, model$gr)
-  report <- sdreport(model)
-  list(model=model, fit=fit, report=report)
+  obj <- MakeADFun(data, parameters, DLL="bevholt", silent=quiet)
+  opt <- nlminb(obj$par, obj$fn, obj$gr)
+  report <- sdreport(obj)
+  list(obj=obj, opt=opt, report=report)
 }

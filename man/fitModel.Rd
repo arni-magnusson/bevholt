@@ -30,9 +30,22 @@ R_\mathrm{max} \frac{S}{S+S_{50}}}{Rhat = Rmax * S / (S + S50)}.
 the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
 }
 \examples{
+# Fit model
 fm <- fitModel(recdata)
 fm$fit$par
 fm$fit$objective
+
+# Summary and confint
 results <- data.frame(recdata, Rhat=exp(fm$report$value))
+results$lower <- exp(fm$report$value + qnorm(0.025) * fm$report$sd)
+results$upper <- exp(fm$report$value + qnorm(0.975) * fm$report$sd)
+
+# Plot
+sorted <- results[order(results$S),]
+plot(NA, xlim=c(0,800), ylim=c(0,900), xlab="S", ylab="R")
+polygon(c(sorted$S,rev(sorted$S)), c(sorted$lower, rev(sorted$upper)),
+        border=NA, col="lightgray")
+lines(Rhat~S, sorted)
+points(R~S, sorted)
 
 }

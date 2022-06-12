@@ -22,6 +22,6 @@
 #' @examples
 #' recdata
 #' plot(recdata[-1])
-#' fitBevHolt(recdata)
+#' bevholt(recdata)
 
 NA

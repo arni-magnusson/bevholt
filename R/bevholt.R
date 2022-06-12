@@ -1,4 +1,4 @@
-#' Fit Beverton-Holt
+#' Beverton-Holt
 #'
 #' Fit a Beverton-Holt recruitment model.
 #'
@@ -20,7 +20,7 @@
 #'
 #' @examples
 #' # Fit model
-#' fm <- fitBevHolt(recdata)
+#' fm <- bevholt(recdata)
 #' fm$opt$par
 #' fm$opt$objective
 #'
@@ -44,8 +44,8 @@
 #'
 #' @export
 
-fitBevHolt <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
-                     quiet=TRUE)
+bevholt <- function(data, parameters=list(logRmax=0, logS50=0, logSigma=0),
+                    quiet=TRUE)
 {
   obj <- MakeADFun(data, parameters, DLL="bevholt", silent=quiet)
   opt <- nlminb(obj$par, obj$fn, obj$gr)

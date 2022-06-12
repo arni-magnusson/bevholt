@@ -33,7 +33,6 @@ the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
 fm <- fitModel(recdata)
 fm$fit$par
 fm$fit$objective
-Rhat <- summary(fm$report)[rownames(summary(fm$report))=="Rhat",]
-data.frame(recdata, Rhat=Rhat[,"Estimate"])
+results <- data.frame(recdata, Rhat=exp(fm$report$value))
 
 }

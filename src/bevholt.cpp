@@ -18,7 +18,7 @@ Type objective_function<Type>::operator() ()
   Type neglogL = 0;
 
   Rhat = Rmax * S / (S + S50);
-  ADREPORT(Rhat);
+  ADREPORT(log(Rhat));
   neglogL = -sum(dnorm(R, Rhat, sigma, true));
 
   return neglogL;

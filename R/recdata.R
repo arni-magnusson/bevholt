@@ -21,6 +21,7 @@
 #'
 #' @examples
 #' recdata
+#' plot(recdata[-1])
 #' fitModel(recdata)
 
 NA

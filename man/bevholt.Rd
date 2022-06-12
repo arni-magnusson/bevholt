@@ -34,6 +34,7 @@ the stock size that produces \eqn{0.50R_\mathrm{max}}{0.50 Rmax}.
 fm <- bevholt(recdata)
 fm$opt$par
 fm$opt$objective
+fm$report$pdHess
 
 # Summary and confint
 results <- data.frame(recdata, Rhat=exp(fm$report$value))

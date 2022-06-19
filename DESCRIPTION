@@ -1,6 +1,6 @@
 Package: bevholt
 Version: 1.0.0
-Date: 2022-03-20
+Date: 2022-06-19
 Title: Beverton-Holt Recruitment Model
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com"))
 Imports: TMB

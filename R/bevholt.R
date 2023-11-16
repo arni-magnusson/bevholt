@@ -13,7 +13,7 @@
 #'
 #' @note
 #' The formulation used is \eqn{\hat{R} =
-#' R_\mathrm{max} \frac{S}{S+S_{50}}}{Rhat = Rmax * S / (S + S50)}, assuming
+#' R_\mathrm{max} \frac{S}{S+S_{50}}}{Rhat = Rmax * S / (S + S50)} assuming
 #' lognormal observation error.
 #'
 #' \eqn{R_\mathrm{max}}{Rmax} is maximum recruitment and \eqn{S_{50}}{S50} is
